@@ -1,16 +1,31 @@
-import Vue from 'vue'
+import Vue from "vue";
 import VueRouter from "vue-router";
-Vue.use(VueRouter)
-import NotFound from "@/components/404/NotFound.vue";
-import Layout from "@/views/Layout.vue";
-import ArticleDetail from "@/views/ArticleDetail.vue";
+import NotFound from "@/components/404/NotFound";
+import Layout from "@/views/Layout";
+import ArticleDetail from "@/views/ArticleDetail";
+import Article from "@/views/Article";
+import Collect from "@/views/Collect";
+import Like from "@/views/Like";
+import User from "@/views/User";
+Vue.use(VueRouter);
+
 const routes = [
+    {
+        path: "/",
+        component: Layout,
+        redirect: "/article",
+        children: [
+            { path: "/article", component: Article },
+            { path: "/collect", component: Collect },
+            { path: "/like", component: Like },
+            { path: "/user", component: User },
+        ],
+    },
+    { path: "/article/detail/:id", component: ArticleDetail },
     { path: "*", component: NotFound },
-    { path: "/", component: Layout },
-    { path: "/article/:id", component: ArticleDetail },
 ];
 const router = new VueRouter({
-  routes
-})
+    routes,
+});
 
-export default router
+export default router;
