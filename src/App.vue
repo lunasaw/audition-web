@@ -1,12 +1,19 @@
 <template>
   <div class="h5-wrapper">
-    <router-view></router-view>
+    <keep-alive :include="keepAlives">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 export default {
   name: "h5-wrapper",
+  data() {
+    return {
+      keepAlives: ["LayoutPage"]
+    };
+  },
 }
 </script>
 

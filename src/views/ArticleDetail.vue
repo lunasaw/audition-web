@@ -1,5 +1,5 @@
 <template>
-    <div class="article-detail-page">
+    <div class="article-detail-page" v-if="article.id">
         <nav class="nav">
             <span @click="$router.back()" class="back">&lt;</span> 面经详情
         </nav>
