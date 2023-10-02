@@ -10,7 +10,7 @@
                 {{ article.likeCount }} 点赞数
             </p>
             <p>
-                <img :src="article.creatorAvatar" alt="" />
+                <img src="@/assets/images/head.png" alt="" />
                 <span>{{ article.creatorName }}</span>
             </p>
         </header>

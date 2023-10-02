@@ -1,28 +1,28 @@
 <template>
     <div class="article-page" v-scroll="handleScroll">
-            <div
-                class="article-item"
-                v-for="article in articles"
-                :key="article.id"
-                @click="handleClick(article)"
-            >
-                <div class="head">
-                    <img alt="Avatar" :src="article.creatorAvatar" />
-                    <div class="con">
-                        <p class="title">{{ article.stem }}</p>
-                        <p class="other">
-                            {{ article.creatorName }} | {{ article.createdAt }}
-                        </p>
-                    </div>
-                </div>
-                <div class="body">
-                    {{ article.content }}
-                </div>
-                <div class="foot">
-                    点赞 {{ article.likeCount }} | 浏览 {{ article.views }}
+        <div
+            class="article-item"
+            v-for="article in articles"
+            :key="article.id"
+            @click="handleClick(article)"
+        >
+            <div class="head">
+                <img alt="Avatar" src="@/assets/images/head.png" />
+                <div class="con">
+                    <p class="title">{{ article.stem }}</p>
+                    <p class="other">
+                        {{ article.creatorName }} | {{ article.createdAt }}
+                    </p>
                 </div>
             </div>
+            <div class="body">
+                {{ article.content }}
+            </div>
+            <div class="foot">
+                点赞 {{ article.likeCount }} | 浏览 {{ article.views }}
+            </div>
         </div>
+    </div>
 </template>
 
 <script>
@@ -51,12 +51,12 @@ export default {
         handleClick(article) {
             console.log("点击事件", article);
             this.$router.push({
-                path: `/article/detail/${article.id}`
+                path: `/article/detail/${article.id}`,
             });
         },
         handleScroll(event) {
-          console.log("滚动事件", event);
-        }
+            console.log("滚动事件", event);
+        },
     },
 };
 </script>
